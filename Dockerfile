@@ -5,11 +5,9 @@ RUN pip install -U atom-ml[ray]
 RUN pip install -U modin[ray]
 RUN pip install airflow-provider-great-expectations
 RUN pip install airflow-provider-mlflow
-RUN pip install apache-airflow-providers-apache-spark
 RUN pip install apache-airflow-providers-cncf-kubernetes
-RUN pip install astro-sdk-python[postgres, amazon, snowflake]
+RUN pip install astro-sdk-python[postgres,amazon,snowflake]
 RUN pip install boto3
-RUN pip install confluent-kafka
 RUN pip install evidently
 RUN pip install great-expectations
 RUN pip install matplotlib
