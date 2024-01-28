@@ -1,0 +1,11 @@
+airflow-provider-mlflow
+apache-airflow-providers-apache-spark
+astro-sdk-python[postgres, amazon, snowflake]
+evidently
+matplotlib
+minio
+scikit-learn
+mlflow-skinny
+s3fs
+pandas
+pyspark

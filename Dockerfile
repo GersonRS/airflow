@@ -1,11 +1,12 @@
-FROM apache/airflow:latest
+FROM apache/airflow:2.8.1
+USER root
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+  openjdk-17-jre-headless \
+  && apt-get autoremove -yqq --purge \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 USER airflow
-RUN pip install airflow-provider-mlflow
-RUN pip install astro-sdk-python[postgres,amazon,snowflake]
-RUN pip install boto3
-RUN pip install evidently
-RUN pip install matplotlib
-RUN pip install minio
-RUN pip install mlflow
-RUN pip install mlflow-skinny
-RUN pip install pandas
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+COPY requirements.txt /
+RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
