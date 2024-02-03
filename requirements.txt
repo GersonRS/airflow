@@ -10,3 +10,4 @@ s3fs
 pandas
 pyspark
 seaborn
+imblearn
