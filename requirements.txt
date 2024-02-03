@@ -1,6 +1,6 @@
 airflow-provider-mlflow
 apache-airflow-providers-apache-spark
-astro-sdk-python[postgres, amazon, snowflake]
+astro-sdk-python[postgres, amazon, snowflake]==1.7.0
 evidently
 matplotlib
 minio
