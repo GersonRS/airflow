@@ -1,12 +1,9 @@
-airflow-provider-mlflow
-apache-airflow-providers-apache-spark
 astro-sdk-python[postgres, amazon, snowflake]
-evidently
-matplotlib
+apache-airflow-providers-apache-spark
+apache-airflow-providers-apache-kafka
+apache-airflow-providers-apache-flink
+apache-airflow-providers-apache-pinot
 minio
-scikit-learn
-mlflow-skinny
 pandas
 pyspark
-seaborn
-imblearn
+confluent-kafka
