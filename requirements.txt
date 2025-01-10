@@ -1,5 +1,5 @@
 astro-sdk-python[postgres, amazon, snowflake]
-apache-airflow-providers-cncf-kubernetes
+apache-airflow-providers-cncf-kubernetes==10.1.0
 apache-airflow-providers-apache-spark
 apache-airflow-providers-apache-kafka
 apache-airflow-providers-apache-flink
