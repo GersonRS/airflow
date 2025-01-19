@@ -24,8 +24,8 @@ jobs:
       - name: Extrair Bibliotecas do requirements.txt
         id: extract-libraries
         run: |
-          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | xargs | sed 's/\s/\n*/g') # Formata a lista com *
-          echo "libraries=$LIBRARIES" >> $GITHUB_OUTPUT
+          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "*" $0}' | paste -sd '\n' -)
+          echo "$LIBRARIES" >> $GITHUB_OUTPUT
 
       - name: Atualizar README.adoc
         uses: unfor19/replacer-action@v1
