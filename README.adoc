@@ -1,4 +1,3 @@
-```adoc
 = Imagem Docker Personalizada do Airflow
 
 Este repositório contém um Dockerfile para construir uma imagem Docker personalizada do Apache Airflow, incluindo bibliotecas adicionais para integração com diversas ferramentas de Big Data e Machine Learning.
