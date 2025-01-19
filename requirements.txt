@@ -10,7 +10,9 @@ mlflow-skinny
 scikit-learn
 matplotlib
 evidently
+imblearn
 pyspark
 seaborn
 pandas
 minio
+s3fs

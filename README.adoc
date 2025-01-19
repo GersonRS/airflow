@@ -1,1 +1,83 @@
-= template-image-builder
+```adoc
+= Imagem Docker Personalizada do Airflow
+
+Este repositório contém um Dockerfile para construir uma imagem Docker personalizada do Apache Airflow, incluindo bibliotecas adicionais para integração com diversas ferramentas de Big Data e Machine Learning.
+
+== Features
+
+* **Baseada no Airflow 2.10.4:** Utiliza a imagem oficial do Apache Airflow 2.10.4 como base.
+* **Bibliotecas Adicionais:** Inclui bibliotecas Python populares para integração com Spark, Kubernetes, Kafka, Flink, Pinot, MLflow, MinIO, Amazon S3, Snowflake, e outras.
+* **Java 17:** Instala o OpenJDK 17 para suporte a aplicações Java.
+* **Build Tools:** Inclui ferramentas de build essenciais (build-essential) para compilar bibliotecas adicionais, se necessário.
+* **Librdkafka:** Instala a biblioteca `librdkafka-dev` para suporte ao Kafka.
+
+
+== Getting Started
+
+=== Pré-requisitos
+
+* Docker instalado e em execução.
+
+=== Build da Imagem local
+
+1. Clone este repositório:
+
+```bash
+git clone https://github.com/GersonRS/airflow.git
+```
+
+2. Navegue até o diretório do repositório:
+
+```bash
+cd airflow
+```
+
+3. Construa a imagem Docker:
+
+```bash
+docker build -t gersonrs/airflow .
+```
+
+== Bibliotecas Inclusas
+
+As seguintes bibliotecas Python estão instaladas nesta imagem:
+
+* `astro-sdk-python[postgres, amazon, snowflake]`
+* `apache-airflow-providers-cncf-kubernetes`
+* `apache-airflow-providers-apache-spark`
+* `apache-airflow-providers-apache-kafka`
+* `apache-airflow-providers-apache-flink`
+* `apache-airflow-providers-apache-pinot`
+* `airflow-provider-mlflow`
+* `confluent-kafka`
+* `mlflow-skinny`
+* `scikit-learn`
+* `matplotlib`
+* `evidently`
+* `imblearn`
+* `pyspark`
+* `seaborn`
+* `pandas`
+* `minio`
+* `s3fs`
+
+
+== Dockerfile
+
+O Dockerfile utilizado para construir a imagem pode ser encontrado em [Dockerfile](Dockerfile).  Ele estende a imagem `apache/airflow:2.10.4`, instala as dependências adicionais e configura o ambiente.
+
+
+== Suporte
+
+Entre em contato com o mantenedor do projeto em um dos seguintes lugares:
+
+* Linkedin: https://www.linkedin.com/in/gersonrsantos/
+* Instagram: https://www.instagram.com/gersonrsantos/
+* Twitter: https://twitter.com/gersonrs3
+* Telegram: https://t.me/gersonrsantos
+* Email: gersonrodriguessantos8@gmail.com
+
+
+== Licença
+
+Este projeto está licenciado sob a licença Apache 2.0. Veja o arquivo [LICENSE](LICENSE) para mais informações.

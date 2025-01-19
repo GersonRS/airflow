@@ -1,9 +1,12 @@
-name: Docker Image CI
+name: Create and publish a Docker image on Docker Hub
 
 on:
   push:
     tags:
       - 'v*'
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   docker:
@@ -13,18 +16,12 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
 
-        # Output setting example
-      -
-        id: repo-basename
-        run: |
-          echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
-        shell: bash
       -
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.repo-basename.outputs.value }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
           tags: |
             # tag event
             type=ref,event=tag

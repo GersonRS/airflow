@@ -1,0 +1,3 @@
+* xref:ROOT:README.adoc[Home]
+* https://github.com/GersonRS/template-image-builder/[Repository,window=_blank]
+* xref:ROOT:ROOT:index.adoc[_Return to Modern GitOps Stack docs_]
