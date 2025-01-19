@@ -10,16 +10,16 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do Repositório
-        uses: actions/checkout@v3
+      # - name: Checkout do Repositório
+      #   uses: actions/checkout@v3
 
-      - name: Configurar Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x' # Versão do Python que você usa
+      # - name: Configurar Python
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: '3.x' # Versão do Python que você usa
 
-      - name: Instalar dependências
-        run: pip install PyGithub
+      # - name: Instalar dependências
+      #   run: pip install PyGithub
 
       - name: Extrair Bibliotecas do requirements.txt
         id: extract-libraries
@@ -30,19 +30,19 @@ jobs:
               echo EOF
             } >> "$GITHUB_OUTPUT"
 
-      - name: Atualizar README.adoc
-        uses: unfor19/replacer-action@v1
-        with:
-          src-file-path: $GITHUB_OUTPUT
-          dst-file-path: "README.md"
-          start-value: "<!-- BEGIN_REQUIREMENTS -->"
-          end-value: "<!-- END_REQUIREMENTS -->"
-          git-skip-commit: true
-          git-skip-push: true
-          create-backup: false
+      # - name: Atualizar README.adoc
+      #   uses: unfor19/replacer-action@v1
+      #   with:
+      #     src-file-path: $GITHUB_OUTPUT
+      #     dst-file-path: "README.md"
+      #     start-value: "<!-- BEGIN_REQUIREMENTS -->"
+      #     end-value: "<!-- END_REQUIREMENTS -->"
+      #     git-skip-commit: true
+      #     git-skip-push: true
+      #     create-backup: false
 
-      - name: Commit das alterações
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "docs(action): generate docs and write to README.adoc"
-          file_pattern: README.adoc
+      # - name: Commit das alterações
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "docs(action): generate docs and write to README.adoc"
+      #     file_pattern: README.adoc
