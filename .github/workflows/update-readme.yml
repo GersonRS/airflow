@@ -34,12 +34,12 @@ jobs:
           dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
-          git-skip-commit: true
-          git-skip-push: true
+          git-skip-commit: false
+          git-skip-push: false
           create-backup: false
 
-      - name: Commit das alterações
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "docs(action): generate docs and write to README.adoc"
-          file_pattern: README.adoc
+      # - name: Commit das alterações
+      #   uses: stefanzweifel/git-auto-commit-action@v4
+      #   with:
+      #     commit_message: "docs(action): generate docs and write to README.adoc"
+      #     file_pattern: README.adoc
