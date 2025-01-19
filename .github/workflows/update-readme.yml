@@ -14,11 +14,11 @@ jobs:
       - name: Prepare source file
         run: |
           LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
-          echo -e "$LIBRARIES" > requirements.txt
+          echo -e "$LIBRARIES" > file.txt
       - uses: unfor19/replacer-action@v1
         name: Update README.md file
         with:
-          src-file-path: requirements.txt
+          src-file-path: file.txt
           dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
