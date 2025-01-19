@@ -1,0 +1,19 @@
+---
+name: "pr-issues-project"
+
+on:
+  issues:
+    types:
+      - opened
+      - reopened
+
+  pull_request:
+    types:
+      - opened
+      - reopened
+
+jobs:
+  add-to-project:
+    uses: GersonRS/modern-gitops-stack/.github/workflows/pr-issues-project.yaml@main
+    secrets:
+      PAT: ${{ secrets.PAT }}

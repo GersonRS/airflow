@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": false,
+      "changelog-path": "CHANGELOG.md",
+      "changelog-sections": [
+        {
+          "hidden": false,
+          "section": "\ud83d\ude80 New Features",
+          "type": "feat"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\ude80 New Features",
+          "type": "feature"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\udc85 Enhancements",
+          "type": "enhance"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\udd25 Bug Fixes",
+          "type": "fix"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83c\udfc3 Performance Improvements",
+          "type": "perf"
+        },
+        {
+          "hidden": true,
+          "section": "\u21a9\ufe0f Reverts",
+          "type": "revert"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\udcda Documentation",
+          "type": "docs"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83c\udfa8 Code Style",
+          "type": "style"
+        },
+        {
+          "hidden": false,
+          "section": "\u2699\ufe0f Chores",
+          "type": "chore"
+        },
+        {
+          "hidden": false,
+          "section": "\u2328\ufe0f Code Refactoring",
+          "type": "refactor"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83e\uddea Automated Testing",
+          "type": "test"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\udee0\ufe0f Build System",
+          "type": "build"
+        },
+        {
+          "hidden": false,
+          "section": "\ud83d\udce6 CI Improvements",
+          "type": "ci"
+        }
+      ],
+      "draft": false,
+      "extra-files": [
+        "variables.tf"
+      ],
+      "prerelease": false,
+      "pull-request-title-pattern": "chore: release ${version}",
+      "release-type": "simple"
+    }
+  }
+}
