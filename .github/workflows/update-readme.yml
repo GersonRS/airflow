@@ -12,18 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Extrair Bibliotecas do requirements.txt
+        id: extract-libraries
         run: |
           LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* `" $0 "`"}' | paste -sd '\n' -)
           echo -e "$LIBRARIES" > file.txt
-          pwd
-          ls -la
-          cat file.txt
-          cat template.txt
-      - uses: unfor19/replacer-action@v1
+      - uses: unfor19/replacer-action@v1.0.7
         name: Atualizar README.adoc
         with:
           src-file-path: "file.txt"
-          dst-file-path: "/home/runner/work/airflow/airflow/template.txt"
+          dst-file-path: "template.txt"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
           git-user-name: "GersonRS"
@@ -32,32 +29,6 @@ jobs:
           git-skip-commit: false
           git-skip-push: false
           create-backup: false
-      - name: Depois de atualizar o arquivo
-        run: |
-          pwd
-          ls -la
-          cat file.txt
-          cat /home/runner/work/airflow/airflow/template.txt
-
-      # - name: Extrair Bibliotecas do requirements.txt
-      #   id: extract-libraries
-      #   run: |
-      #       LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
-      #       echo -e "$LIBRARIES" > file.txt
-
-      # - name: Atualizar README.adoc
-      #   uses: unfor19/replacer-action@v1
-      #   with:
-      #     src-file-path: requirements.txt
-      #     dst-file-path: "README.adoc"
-      #     start-value: "<!-- BEGIN_REQUIREMENTS -->"
-      #     end-value: "<!-- END_REQUIREMENTS -->"
-      #     git-user-name: "GersonRS"
-      #     git-user-email: "gersonrodriguessantos8@gmail.com"
-      #     git-commit-msg: "docs(action): generate docs and write to README.adoc"
-      #     git-skip-commit: false
-      #     git-skip-push: false
-      #     create-backup: true
 
       - name: Commit das alterações
         uses: stefanzweifel/git-auto-commit-action@v4
