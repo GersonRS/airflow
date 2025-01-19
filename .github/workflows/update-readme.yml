@@ -36,7 +36,7 @@ jobs:
         uses: unfor19/replacer-action@v1
         with:
           src-file-path: file.txt
-          dst-file-path: "README.md"
+          dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
           git-skip-commit: true
