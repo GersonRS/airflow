@@ -1,4 +1,3 @@
-```adoc
 = Imagem Docker Personalizada do Airflow
 
 Este repositório contém um Dockerfile para construir uma imagem Docker personalizada do Apache Airflow, incluindo bibliotecas adicionais para integração com diversas ferramentas de Big Data e Machine Learning.
@@ -39,27 +38,11 @@ docker build -t gersonrs/airflow .
 ```
 
 == Bibliotecas Inclusas
-<!-- BEGIN_REQUIREMENTS -->
+
 As seguintes bibliotecas Python estão instaladas nesta imagem:
 
-* `astro-sdk-python[postgres, amazon, snowflake]`
-* `apache-airflow-providers-cncf-kubernetes`
-* `apache-airflow-providers-apache-spark`
-* `apache-airflow-providers-apache-kafka`
-* `apache-airflow-providers-apache-flink`
-* `apache-airflow-providers-apache-pinot`
-* `airflow-provider-mlflow`
-* `confluent-kafka`
-* `mlflow-skinny`
-* `scikit-learn`
-* `matplotlib`
-* `evidently`
-* `imblearn`
-* `pyspark`
-* `seaborn`
-* `pandas`
-* `minio`
-* `s3fs`
+<!-- BEGIN_REQUIREMENTS -->
+
 <!-- END_REQUIREMENTS -->
 
 == Dockerfile
