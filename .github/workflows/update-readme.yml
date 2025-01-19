@@ -1,0 +1,45 @@
+name: Atualizar README
+
+on:
+  pull_request:
+    paths:
+      - requirements.txt
+
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do Repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Versão do Python que você usa
+
+      - name: Instalar dependências
+        run: pip install PyGithub
+
+      - name: Extrair Bibliotecas do requirements.txt
+        id: extract-libraries
+        run: |
+          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | xargs | sed 's/\s/\n*/g') # Formata a lista com *
+          echo "libraries=$LIBRARIES" >> $GITHUB_OUTPUT
+
+      - name: Atualizar README.adoc
+        uses: endorphin/insert-text-action@v2
+        with:
+          filepath: README.adoc
+          begin-marker: '<!-- BEGIN_REQUIREMENTS -->'
+          end-marker: '<!-- END_REQUIREMENTS -->'
+          text: |
+            As seguintes bibliotecas Python estão instaladas nesta imagem:
+
+            ${{ steps.extract-libraries.outputs.libraries }}
+
+      - name: Commit das alterações
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "docs(action): generate docs and write to README.adoc"
+          file_pattern: README.adoc
