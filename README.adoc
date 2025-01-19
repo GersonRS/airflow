@@ -38,9 +38,10 @@ docker build -t gersonrs/airflow .
 ```
 
 == Bibliotecas Inclusas
-<!-- BEGIN_REQUIREMENTS -->
+
 As seguintes bibliotecas Python estão instaladas nesta imagem:
 
+<!-- BEGIN_REQUIREMENTS -->
 * `astro-sdk-python[postgres, amazon, snowflake]`
 * `apache-airflow-providers-cncf-kubernetes`
 * `apache-airflow-providers-apache-spark`
