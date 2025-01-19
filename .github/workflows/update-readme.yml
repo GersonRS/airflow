@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      # - name: Extrair Bibliotecas do requirements.txt
-      #   run: |
-      #     LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
-      #     echo -e "$LIBRARIES" > template.txt
+      - name: Extrair Bibliotecas do requirements.txt
+        run: |
+          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
+          echo -e "$LIBRARIES" > requirements.txt
       - uses: unfor19/replacer-action@v1
         name: Atualizar README.adoc
         with:
