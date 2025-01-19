@@ -18,7 +18,7 @@ jobs:
           pwd
           ls -la
           cat file.txt
-          cat requirements.txt
+          cat template.txt
       - uses: unfor19/replacer-action@v1
         name: Atualizar README.adoc
         with:
@@ -32,7 +32,12 @@ jobs:
           git-skip-commit: false
           git-skip-push: false
           create-backup: false
-
+      - name: Depois de atualizar o arquivo
+        run: |
+          pwd
+          ls -la
+          cat file.txt
+          cat template.txt
 
       # - name: Extrair Bibliotecas do requirements.txt
       #   id: extract-libraries
