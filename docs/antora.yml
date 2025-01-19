@@ -1,0 +1,7 @@
+---
+name: "template-image-builder"
+title: "Um template para build e push de imagens Docker"
+version: true
+start_page: README.adoc
+nav:
+  - "modules/ROOT/nav.adoc"

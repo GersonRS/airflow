@@ -1,9 +1,12 @@
-name: Docker Image CI
+name: Create and publish a Docker image on Docker Hub
 
 on:
   push:
     tags:
       - 'v*'
+
+env:
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   docker:
@@ -13,18 +16,12 @@ jobs:
         name: Checkout
         uses: actions/checkout@v4
 
-        # Output setting example
-      - 
-        id: repo-basename
-        run: |
-          echo "value=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
-        shell: bash
       -
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.repo-basename.outputs.value }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}
           tags: |
             # tag event
             type=ref,event=tag
@@ -36,9 +33,17 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
+        id: push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+      -
+        name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ secrets.DOCKERHUB_USERNAME }}/${{ steps.repo-basename.outputs.value }}
+          subject-digest: ${{ steps.push.outputs.digest }}
+          push-to-registry: true
