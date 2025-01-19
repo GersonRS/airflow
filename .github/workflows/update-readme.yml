@@ -16,7 +16,7 @@ jobs:
           LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* `" $0 "`"}' | paste -sd '\n' -)
           echo -e "$LIBRARIES" > file.txt
           pwd
-          ll
+          ls -la
           cat file.txt
           cat requirements.txt
       - uses: unfor19/replacer-action@v1
