@@ -13,19 +13,21 @@ jobs:
       - uses: actions/checkout@v2
       - name: Extrair Bibliotecas do requirements.txt
         run: |
-          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
-          echo -e "$LIBRARIES" > requirements.txt
+          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* `" $0 "`"}' | paste -sd '\n' -)
+          echo -e "$LIBRARIES" > file.txt
+          cat file.txt
+          cat requirements.txt
       - uses: unfor19/replacer-action@v1
         name: Atualizar README.adoc
         with:
-          src-file-path: requirements.txt
+          src-file-path: file.txt
           dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
           git-user-name: "GersonRS"
           git-user-email: "gersonrodriguessantos8@gmail.com"
           git-commit-msg: "docs(action): generate docs and write to README.adoc"
-          git-skip-commit: true
+          git-skip-commit: false
           git-skip-push: true
           create-backup: false
 

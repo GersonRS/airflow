@@ -42,7 +42,6 @@ docker build -t gersonrs/airflow .
 As seguintes bibliotecas Python estão instaladas nesta imagem:
 
 <!-- BEGIN_REQUIREMENTS -->
-
 <!-- END_REQUIREMENTS -->
 
 == Dockerfile
