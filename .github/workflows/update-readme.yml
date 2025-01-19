@@ -20,15 +20,15 @@ jobs:
       - uses: unfor19/replacer-action@v1
         name: Atualizar README.adoc
         with:
-          src-file-path: file.txt
-          dst-file-path: "README.adoc"
+          src-file-path: "file.txt"
+          dst-file-path: "template.txt"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
           git-user-name: "GersonRS"
           git-user-email: "gersonrodriguessantos8@gmail.com"
           git-commit-msg: "docs(action): generate docs and write to README.adoc"
           git-skip-commit: false
-          git-skip-push: true
+          git-skip-push: false
           create-backup: false
 
 
@@ -56,4 +56,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "docs(action): generate docs and write to README.adoc"
-          file_pattern: README.adoc
+          file_pattern: template.txt
