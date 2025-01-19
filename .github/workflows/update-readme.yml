@@ -10,8 +10,26 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout do Repositório
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v2
+      - name: Prepare source file
+        run: |
+          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
+          echo -e "$LIBRARIES" > requirements.txt
+      - uses: unfor19/replacer-action@v1
+        name: Update README.md file
+        with:
+          src-file-path: requirements.txt
+          dst-file-path: "README.adoc"
+          start-value: "<!-- BEGIN_REQUIREMENTS -->"
+          end-value: "<!-- END_REQUIREMENTS -->"
+          git-user-name: "GersonRS"
+          git-user-email: "gersonrodriguessantos8@gmail.com"
+          git-commit-msg: "docs(action): generate docs and write to README.adoc"
+          git-skip-commit: false
+          git-skip-push: false
+          create-backup: true
+      # - name: Checkout do Repositório
+      #   uses: actions/checkout@v3
 
       # - name: Configurar Python
       #   uses: actions/setup-python@v4
@@ -27,19 +45,19 @@ jobs:
       #       LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
       #       echo -e "$LIBRARIES" > file.txt
 
-      - name: Atualizar README.adoc
-        uses: unfor19/replacer-action@v1
-        with:
-          src-file-path: requirements.txt
-          dst-file-path: "README.adoc"
-          start-value: "<!-- BEGIN_REQUIREMENTS -->"
-          end-value: "<!-- END_REQUIREMENTS -->"
-          git-user-name: "GersonRS"
-          git-user-email: "gersonrodriguessantos8@gmail.com"
-          git-commit-msg: "docs(action): generate docs and write to README.adoc"
-          git-skip-commit: false
-          git-skip-push: false
-          create-backup: true
+      # - name: Atualizar README.adoc
+      #   uses: unfor19/replacer-action@v1
+      #   with:
+      #     src-file-path: requirements.txt
+      #     dst-file-path: "README.adoc"
+      #     start-value: "<!-- BEGIN_REQUIREMENTS -->"
+      #     end-value: "<!-- END_REQUIREMENTS -->"
+      #     git-user-name: "GersonRS"
+      #     git-user-email: "gersonrodriguessantos8@gmail.com"
+      #     git-commit-msg: "docs(action): generate docs and write to README.adoc"
+      #     git-skip-commit: false
+      #     git-skip-push: false
+      #     create-backup: true
 
       # - name: Commit das alterações
       #   uses: stefanzweifel/git-auto-commit-action@v4

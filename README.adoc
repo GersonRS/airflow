@@ -42,24 +42,7 @@ docker build -t gersonrs/airflow .
 As seguintes bibliotecas Python estão instaladas nesta imagem:
 
 <!-- BEGIN_REQUIREMENTS -->
-* `astro-sdk-python[postgres, amazon, snowflake]`
-* `apache-airflow-providers-cncf-kubernetes`
-* `apache-airflow-providers-apache-spark`
-* `apache-airflow-providers-apache-kafka`
-* `apache-airflow-providers-apache-flink`
-* `apache-airflow-providers-apache-pinot`
-* `airflow-provider-mlflow`
-* `confluent-kafka`
-* `mlflow-skinny`
-* `scikit-learn`
-* `matplotlib`
-* `evidently`
-* `imblearn`
-* `pyspark`
-* `seaborn`
-* `pandas`
-* `minio`
-* `s3fs`
+
 <!-- END_REQUIREMENTS -->
 
 == Dockerfile
