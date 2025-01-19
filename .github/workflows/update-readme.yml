@@ -28,7 +28,7 @@ jobs:
           git-commit-msg: "docs(action): generate docs and write to README.adoc"
           git-skip-commit: false
           git-skip-push: false
-          create-backup: false
+          create-backup: true
 
       - name: Commit das alterações
         uses: stefanzweifel/git-auto-commit-action@v4
