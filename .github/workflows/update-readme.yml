@@ -29,11 +29,12 @@ jobs:
               grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -
               echo EOF
             } >> "$GITHUB_OUTPUT"
+            echo -e "$GITHUB_OUTPUT"
 
       - name: Atualizar README.adoc
         uses: unfor19/replacer-action@v1
         with:
-          src-file-path: $GITHUB_OUTPUT
+          src-file-path: "$GITHUB_OUTPUT"
           dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
