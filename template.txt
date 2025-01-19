@@ -1,2 +1,0 @@
-<!-- BEGIN_REQUIREMENTS -->
-<!-- END_REQUIREMENTS -->
