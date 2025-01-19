@@ -25,9 +25,9 @@ jobs:
         id: extract-libraries
         run: |
           {
-            LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
-            echo 'libraries<<EOF'
-            $LIBRARIES
+            LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "*" $0}' | paste -sd '\n' -)
+            echo 'libraries=<<EOF'
+            echo $LIBRARIES
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
