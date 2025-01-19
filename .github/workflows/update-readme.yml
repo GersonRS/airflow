@@ -23,7 +23,7 @@ jobs:
         name: Atualizar README.adoc
         with:
           src-file-path: "file.txt"
-          dst-file-path: "template.txt"
+          dst-file-path: "/home/runner/work/airflow/airflow/template.txt"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
           git-user-name: "GersonRS"
@@ -37,7 +37,7 @@ jobs:
           pwd
           ls -la
           cat file.txt
-          cat template.txt
+          cat /home/runner/work/airflow/airflow/template.txt
 
       # - name: Extrair Bibliotecas do requirements.txt
       #   id: extract-libraries
