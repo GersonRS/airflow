@@ -73,9 +73,6 @@
         }
       ],
       "draft": false,
-      "extra-files": [
-        "variables.tf"
-      ],
       "prerelease": false,
       "pull-request-title-pattern": "chore: release ${version}",
       "release-type": "simple"
