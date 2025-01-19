@@ -24,17 +24,13 @@ jobs:
       - name: Extrair Bibliotecas do requirements.txt
         id: extract-libraries
         run: |
-            {
-              echo 'JSON_RESPONSE<<EOF'
-              grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -
-              echo EOF
-            } >> "$GITHUB_OUTPUT"
-            echo -e "$GITHUB_OUTPUT"
+            LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* " $0}' | paste -sd '\n' -)
+            echo -e "$LIBRARIES" > file.txt
 
       - name: Atualizar README.adoc
         uses: unfor19/replacer-action@v1
         with:
-          src-file-path: "$GITHUB_OUTPUT"
+          src-file-path: file.txt
           dst-file-path: "README.adoc"
           start-value: "<!-- BEGIN_REQUIREMENTS -->"
           end-value: "<!-- END_REQUIREMENTS -->"
