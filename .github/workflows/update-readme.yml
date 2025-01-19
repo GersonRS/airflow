@@ -6,32 +6,54 @@ on:
       - requirements.txt
 
 
+# jobs:
+#   update-readme:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Extrair Bibliotecas do requirements.txt
+#         id: extract-libraries
+#         run: |
+#           LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* `" $0 "`"}' | paste -sd '\n' -)
+#           echo -e "$LIBRARIES" > file.txt
+#       - uses: unfor19/replacer-action@v1.0.7
+#         name: Atualizar README.adoc
+#         with:
+#           src-file-path: "file.txt"
+#           dst-file-path: "template.txt"
+#           start-value: "<!-- BEGIN_REQUIREMENTS -->"
+#           end-value: "<!-- END_REQUIREMENTS -->"
+#           git-user-name: "GersonRS"
+#           git-user-email: "gersonrodriguessantos8@gmail.com"
+#           git-commit-msg: "docs(action): generate docs and write to README.adoc"
+#           git-skip-commit: false
+#           git-skip-push: false
+#           create-backup: true
+
+#       - name: Commit das alterações
+#         uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: "docs(action): generate docs and write to README.adoc"
+#           file_pattern: template.txt
+
 jobs:
   update-readme:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: Extrair Bibliotecas do requirements.txt
-        id: extract-libraries
+      - name: Prepare source file
         run: |
-          LIBRARIES=$(grep -v '^#' requirements.txt | grep -v '^-' | awk '{print "* `" $0 "`"}' | paste -sd '\n' -)
-          echo -e "$LIBRARIES" > file.txt
-      - uses: unfor19/replacer-action@v1.0.7
-        name: Atualizar README.adoc
+          echo "<div>$(whoami)</div>" > test_results.log
+      - uses: unfor19/replacer-action@v1
+        name: Update README.md file
         with:
-          src-file-path: "file.txt"
-          dst-file-path: "template.txt"
-          start-value: "<!-- BEGIN_REQUIREMENTS -->"
-          end-value: "<!-- END_REQUIREMENTS -->"
-          git-user-name: "GersonRS"
-          git-user-email: "gersonrodriguessantos8@gmail.com"
-          git-commit-msg: "docs(action): generate docs and write to README.adoc"
+          src-file-path: "test_results.log"
+          dst-file-path: "README.md"
+          start-value: "<!-- replacer_start -->"
+          end-value: "<!-- replacer_end -->"
+          git-user-name: "replacer-action"
+          git-user-email: "replacer-action@meirg.co.il"
+          git-commit-msg: "Updated by GitHub Actions"
           git-skip-commit: false
           git-skip-push: false
           create-backup: true
-
-      - name: Commit das alterações
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "docs(action): generate docs and write to README.adoc"
-          file_pattern: template.txt
