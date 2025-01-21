@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/GersonRS/airflow/compare/v1.3.0...v1.4.0) (2025-01-21)
+
+
+### 🚀 New Features
+
+* adjust build workflow ([35bb6c9](https://github.com/GersonRS/airflow/commit/35bb6c9fb4a2b80c11179c392aee1973f675accc))
+
 ## [1.3.0](https://github.com/GersonRS/airflow/compare/v1.2.0...v1.3.0) (2025-01-19)
 
 
