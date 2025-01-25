@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/GersonRS/airflow/compare/v1.4.0...v1.5.0) (2025-01-25)
+
+
+### 🚀 New Features
+
+* update lib apache-airflow-providers-cncf-kubernetes to version 10.1.0 ([bf60b10](https://github.com/GersonRS/airflow/commit/bf60b107f6605f669b5a2a8f1ccfc741c84e87df))
+
 ## [1.4.0](https://github.com/GersonRS/airflow/compare/v1.3.0...v1.4.0) (2025-01-21)
 
 
