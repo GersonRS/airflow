@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/GersonRS/airflow/compare/v1.5.0...v1.5.1) (2025-02-08)
+
+
+### ⌨️ Code Refactoring
+
+* adjust workflows ([9d1350a](https://github.com/GersonRS/airflow/commit/9d1350ae43b656622bea5ac564ff49caee86d02d))
+
 ## [1.5.0](https://github.com/GersonRS/airflow/compare/v1.4.0...v1.5.0) (2025-01-25)
 
 
