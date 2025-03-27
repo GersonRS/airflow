@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.5.1](https://github.com/GersonRS/airflow/compare/v1.5.0...v1.5.1) (2025-03-27)
+
+
+### ⌨️ Code Refactoring
+
+* add tensorflow ([998bf61](https://github.com/GersonRS/airflow/commit/998bf61ddfba8fbf65caefd3a2eb5e979cd55c49))
+* adjust workflows ([ac9b337](https://github.com/GersonRS/airflow/commit/ac9b3378378d2145cd6080773f63eaa079cc87d6))
+* adjust workflows ([9d1350a](https://github.com/GersonRS/airflow/commit/9d1350ae43b656622bea5ac564ff49caee86d02d))
+
 ## [1.5.0](https://github.com/GersonRS/airflow/compare/v1.4.0...v1.5.0) (2025-01-25)
 
 
