@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.2](https://github.com/GersonRS/airflow/compare/v1.5.1...v1.5.2) (2025-03-28)
+
+
+### ⌨️ Code Refactoring
+
+* add delta-spark ([fb5a921](https://github.com/GersonRS/airflow/commit/fb5a921bf446f965e06525ffb2f56135bf020d19))
+* add delta-spark ([6d475bc](https://github.com/GersonRS/airflow/commit/6d475bc0187a8e2da5d450a2d631807473ea7f96))
+
 ## [1.5.1](https://github.com/GersonRS/airflow/compare/v1.5.0...v1.5.1) (2025-03-27)
 
 
