@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.4](https://github.com/GersonRS/airflow/compare/v1.5.3...v1.5.4) (2025-03-28)
+
+
+### 🧪 Automated Testing
+
+* add s3 ([80d6062](https://github.com/GersonRS/airflow/commit/80d6062039f8dd9da050d13d77f55e9980ce444b))
+* add s3 ([d95036b](https://github.com/GersonRS/airflow/commit/d95036b4d30354257b3e801e678077b5c2d44b2c))
+
 ## [1.5.3](https://github.com/GersonRS/airflow/compare/v1.5.2...v1.5.3) (2025-03-28)
 
 
