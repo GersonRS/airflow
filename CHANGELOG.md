@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.3](https://github.com/GersonRS/airflow/compare/v1.5.2...v1.5.3) (2025-03-28)
+
+
+### ⌨️ Code Refactoring
+
+* add deltalake ([0546da4](https://github.com/GersonRS/airflow/commit/0546da4e0f00b41e20e3b1a78804de86dadda23e))
+* add deltalake ([e9f9749](https://github.com/GersonRS/airflow/commit/e9f974935e0f116f2c249d887ca016b96392e0dd))
+
 ## [1.5.2](https://github.com/GersonRS/airflow/compare/v1.5.1...v1.5.2) (2025-03-28)
 
 
