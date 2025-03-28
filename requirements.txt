@@ -18,3 +18,4 @@ pandas
 minio
 s3fs
 delta-spark==3.3.0
+deltalake
